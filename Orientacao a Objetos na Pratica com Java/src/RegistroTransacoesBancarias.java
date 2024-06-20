@@ -27,10 +27,10 @@ public class RegistroTransacoesBancarias {
             // Atualiza o saldo da conta e adicionar a transação à lista
             if (tipoTransacao == 'D') {
                 saldo += valorTransacao;
-                transacoes.add("Deposito de " + valorTransacao);
+                transacoes.add(i + ". Deposito de " + valorTransacao);
             } else if (tipoTransacao == 'S') {
                 saldo -= valorTransacao;
-                transacoes.add("Saque de " + valorTransacao);
+                transacoes.add(i + ". Saque de " + valorTransacao);
             } else {
                 System.out.println("Opção inválida. Utilize D para depósito ou S para saque.");
                 i--; // Decrementa o índice para repetir a iteração
@@ -38,8 +38,11 @@ public class RegistroTransacoesBancarias {
         }
 
         // TODO: Exibir o saldo final e a lista de transações conforme a tabela de Exemplos.
-        System.out.println(saldo);
-
+        System.out.println("Saldo: " +saldo);
+        System.out.println("Transacoes:");
+        for (String transacao : transacoes) {
+            System.out.println(transacao);
+        }
         // Fechar o scanner para evitar vazamentos de recursos
         scanner.close();
     }
